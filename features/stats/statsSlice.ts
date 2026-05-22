@@ -1,6 +1,7 @@
 import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
+import {FOLLOWERS, FOLLOWING} from "../../utils/constants.ts";
 
-type StatsType = 'followers' | 'following';
+type StatsType = typeof FOLLOWERS| typeof FOLLOWING;
 
 interface StatsPayload {
     statsType: StatsType;
@@ -10,8 +11,8 @@ interface StatsPayload {
 const statsSlice = createSlice({
     name: 'stats',
     initialState: {
-        followers: 0,
-        following: 0
+        [FOLLOWERS]: 0,
+        [FOLLOWING]: 0
     },
     reducers: {
         changeStats: {
